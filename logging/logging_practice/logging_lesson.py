@@ -2,6 +2,12 @@ import logging
 
 
 def loglevel_test():
+    """
+    ログレベルを変更するには、basicConfigで設定可能。
+    INFO : info以下表示、WARNING : warning以下表示といった具合。
+    頭についてないと動作しなかった。既にログ吐いてからの設定は不可のよう。
+    """
+    logging.basicConfig(level=logging.INFO)
 
     """
     5つのログレベルが存在する。
