@@ -2,6 +2,8 @@ import logging
 
 
 def loglevel_test():
+    LOG_FORMAT = "%(levelname)s : %(asctime)s : %(message)s"
+
     """
     ログレベル：
     ログレベルを変更するには、basicConfigで設定可能。
@@ -11,8 +13,15 @@ def loglevel_test():
     ファイル出力：
     filenameで指定可能。
     ログは毎回追記されていた。
+
+    フォーマット：
+    formatで指定可能。
+    定数作って引数に与えてあげれば良さそう。
+    時間のフォーマットはdatefmtで設定。"%Y-%m-%d %H:%M:%S"が日本人には見やすそう。
+    その他、[関数名、PID、行番号]などもある。適したものを探して使おう。
     """
-    logging.basicConfig(filename="../logs/test.log", level=logging.DEBUG)
+    logging.basicConfig(filename="../logs/test.log",format=LOG_FORMAT, 
+                        datefmt="%Y-%m-%d %H:%M:%S", level=logging.DEBUG)
 
     """
     5つのログレベルが存在する。
