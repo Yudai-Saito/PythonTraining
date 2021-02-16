@@ -2,7 +2,7 @@ import logging
 
 
 def loglevel_test():
-    LOG_FORMAT = "%(levelname)s : %(asctime)s : %(message)s"
+    LOG_FORMAT = "%(levelname)s : %(asctime)s : %(name)s: %(message)s"
 
     """
     ログレベル：
@@ -21,7 +21,7 @@ def loglevel_test():
     その他、[関数名、PID、行番号]などもある。適したものを探して使おう。
     """
     logging.basicConfig(filename="../logs/test.log",format=LOG_FORMAT, 
-                        datefmt="%Y-%m-%d %H:%M:%S", level=logging.DEBUG)
+                        datefmt="%Y-%m-%d %H:%M:%S", level=logging.WARNING)
 
     """
     5つのログレベルが存在する。
@@ -33,6 +33,17 @@ def loglevel_test():
     logging.warning("想定外のことが発生、問題が起こりそう")
     logging.error("重大なエラーにより、機能の一部が停止")
     logging.critical("プログラム全体がダウン、重大なエラー")
+
+    """
+    ロガーを作成することで特定の処理だけのログ設定が可能になる。
+    setLevelで、個別にログレベルを変えることも可能。
+    getLogger()で名前変更ができる。"hoge"でhogeが、__name__で実行したファイル名が出力。
+    実行元[__main__.pyは__main__に]、別ファイル(bar.py)は[bar]となるようだ。
+    """
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.DEBUG)
+    logger.debug("ロガーでのデバッグ")
+    
 
 if __name__ == "__main__":
     loglevel_test()
