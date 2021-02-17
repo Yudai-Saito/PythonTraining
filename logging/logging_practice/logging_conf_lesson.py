@@ -1,4 +1,5 @@
 import logging.config
+import logging_conf_lesson2
 
 #loggingへlogging.confを適用
 logging.config.fileConfig("../logging.conf")
@@ -10,3 +11,5 @@ logging.info("想定通りの動作の確認")
 logging.warning("想定外のことが発生、問題が起こりそう")
 logging.error("重大なエラーにより、機能の一部が停止")
 logging.critical("プログラム全体がダウン、重大なエラー")
+
+logging_conf_lesson2.hoge()
