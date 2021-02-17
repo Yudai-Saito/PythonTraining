@@ -1,8 +1,9 @@
 import logging
+import logging_lesson2
 
 
 def loglevel_test():
-    LOG_FORMAT = "%(levelname)s : %(asctime)s : %(name)s: %(message)s"
+    LOG_FORMAT = "%(levelname)s : %(asctime)s : %(name)s : %(message)s"
 
     """
     ログレベル：
@@ -43,7 +44,8 @@ def loglevel_test():
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.DEBUG)
     logger.debug("ロガーでのデバッグ")
-    
+
+    logging_lesson2.hoge()
 
 if __name__ == "__main__":
     loglevel_test()
